@@ -21,10 +21,9 @@ export const getCommandeU = async (req, res) => {
 
 export const addCommandeU = async (req, res) => {
     try {
-        const newCommande = new CommandeU(req.body)
-        // updateStock(newCommande,0)
-        console.log(newCommande.articles)
+        console.log(req.body)
 
+        const newCommande = new CommandeU(req.body)
         await newCommande.save()
         res.status(201).json(newCommande)
     } catch (e) {
@@ -47,9 +46,7 @@ export const updateCommandeU = async (req, res) => {
     try {
         const {id}=req.params
         const commande = await CommandeU.findById(id)
-        console.log('commande '+commande.etat)
         const updatedCommande = new CommandeU(req.body)
-        console.log('updated commande '+ updatedCommande.etat)
         if (commande.etat === 2) {
             if (updatedCommande.etat === 4) {
                 updateStock(updatedCommande, 1)

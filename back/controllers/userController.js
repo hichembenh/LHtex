@@ -38,16 +38,14 @@ export const login = async (req, res) => {
 
         if (!isPasswordCorrect) return res.status(400).json({message: "Invalid credentials"});
 
-        const token = jwt.sign({email: oldUser.email, id: oldUser._id}, process.env.TOKEN, {expiresIn: "1h"});
+        const token = jwt.sign({email: oldUser.email, id: oldUser._id}, process.env.TOKEN, {expiresIn: "4h"});
 
         res.status(200).json({result: oldUser, token});
     } catch (err) {
         res.status(500).json({message: "Something went wrong"});
     }
 }
-export const logout = async (req, res) => {
 
-}
 export const updateUser = async (req, res) => {
     const {id} = req.params;
     const {firstName, lastName, numTel, img, email, password, isCom, isInv, isRH} = req.body;

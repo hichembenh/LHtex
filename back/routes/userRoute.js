@@ -3,10 +3,8 @@ import {deleteUser, fetchUsers, login, register, updateUser} from "../controller
 
 const router = express.Router()
 
-router.post("/connexion",login);
-router.post("/signup", register);
-router.patch("/user/:id",updateUser);
-router.get("/user",fetchUsers);
-router.delete("/user/:id",deleteUser)
+router.patch("/:id",updateUser);
+router.get("/",fetchUsers);
+router.delete("/:id",deleteUser)
 
 export default router
