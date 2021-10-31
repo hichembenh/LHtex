@@ -32,6 +32,6 @@ app.use('/personnel',auth,personnelRoute)
 app.use('/livreur',auth,livreurRoute)
 
 
-mongoose.connect(process.env.CONNECTION_URL_Htex, { useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:false })
+mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:false })
     .then(() => app.listen(process.env.PORT, () => console.log(`Server Running on Port: http://localhost:${process.env.PORT}`)))
     .catch((error) => console.log(`${error} did not connect`));
