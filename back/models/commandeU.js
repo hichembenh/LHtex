@@ -14,7 +14,18 @@ const commandeUSchema= new Schema({
         type:String
     },
     adresseClient:{
-        type:String
+        gov:{
+            type:String,
+            required:true
+        },
+        delegation:{
+            type:String,
+            required:true
+        },
+        adresse:{
+            type:String,
+            required:true
+        }
     },
     numTelClient:{
         type:Number
